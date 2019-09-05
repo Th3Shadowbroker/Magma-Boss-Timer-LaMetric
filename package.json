@@ -1,0 +1,28 @@
+{
+  "name": "hypixel-mbt-lametric-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "svc/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node svc/index.js",
+    "docs": "jsdoc2md --files svc/*/*.js > docs.md"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "memory-cache": "^0.2.0",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.26",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "jsdoc-to-markdown": "^5.0.1"
+  }
+}

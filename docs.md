@@ -21,6 +21,9 @@
 <dt><a href="#handleRequest">handleRequest(req, res)</a></dt>
 <dd><p>Handles incoming requests.</p>
 </dd>
+<dt><a href="#applyLeadingZeroes">applyLeadingZeroes(num, req)</a> ⇒ <code>string</code> | <code>number</code></dt>
+<dd><p>Applies the leadingZeroes query-parameter.</p>
+</dd>
 </dl>
 
 <a name="LaMetric"></a>
@@ -177,4 +180,16 @@ Handles incoming requests.
 | --- | --- |
 | req | <code>Request</code> | 
 | res | <code>Response</code> | 
+
+<a name="applyLeadingZeroes"></a>
+
+## applyLeadingZeroes(num, req) ⇒ <code>string</code> \| <code>number</code>
+Applies the leadingZeroes query-parameter.
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| num | <code>number</code> | 
+| req | <code>Request</code> | 
 

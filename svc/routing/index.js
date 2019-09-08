@@ -48,7 +48,7 @@ function handleRequest(req, res) {
  * @return {string|number}
  */
 function applyLeadingZeroes(num, req) {
-    if (req.query.hasOwnProperty('leadingZeroes') && req.query.leadingZeroes === '1') {
+    if (req.query.hasOwnProperty('leadingZeroes') && req.query.leadingZeroes === 'true') {
         if (num < 10) {
             return '0' + num;
         }

@@ -21,8 +21,8 @@
 <dt><a href="#handleRequest">handleRequest(req, res)</a></dt>
 <dd><p>Handles incoming requests.</p>
 </dd>
-<dt><a href="#applyLeadingZeroes">applyLeadingZeroes(num, req)</a> ⇒ <code>string</code> | <code>number</code></dt>
-<dd><p>Applies the leadingZeroes query-parameter.</p>
+<dt><a href="#applyLeadingZeros">applyLeadingZeros(num, req)</a> ⇒ <code>string</code> | <code>number</code></dt>
+<dd><p>Applies the leadingZeros query-parameter.</p>
 </dd>
 </dl>
 
@@ -181,10 +181,10 @@ Handles incoming requests.
 | req | <code>Request</code> | 
 | res | <code>Response</code> | 
 
-<a name="applyLeadingZeroes"></a>
+<a name="applyLeadingZeros"></a>
 
-## applyLeadingZeroes(num, req) ⇒ <code>string</code> \| <code>number</code>
-Applies the leadingZeroes query-parameter.
+## applyLeadingZeros(num, req) ⇒ <code>string</code> \| <code>number</code>
+Applies the leadingZeros query-parameter.
 
 **Kind**: global function  
 

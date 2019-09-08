@@ -26,7 +26,7 @@ function handleRequest(req, res) {
             .then(
                 result => {
                     const diff = TimeUtility.diff(result['estimate']);
-                    const response = LaMetric.generateResponse( util.format('%s:%s', diff.h, diff.m), config.get('icon') );
+                    let response = LaMetric.generateResponse( util.format('%s:%s', applyLeadingZeroes(diff.h, req), applyLeadingZeroes(diff.m, req)), config.get('icon') );
                     mcache.put(cacheKey, response, config.get('cacheTimeout') * 1000);
                     res.json(response);
                 }
@@ -34,11 +34,26 @@ function handleRequest(req, res) {
             .catch(
                 reason => {
                     console.log(reason);
-                    res.json(LaMetric.generateResponse( 'Err ' + reason.status, config.get('icon') ));
+                    res.json(LaMetric.generateResponse( 'Err ' + reason.statusCode, config.get('icon') ));
                 }
             )
     }
 
+}
+
+/**
+ * Applies the leadingZeroes query-parameter.
+ * @param num {number}
+ * @param req {Request}
+ * @return {string|number}
+ */
+function applyLeadingZeroes(num, req) {
+    if (req.query.hasOwnProperty('leadingZeroes') && req.query.leadingZeroes === '1') {
+        if (num < 10) {
+            return '0' + num;
+        }
+    }
+    return num;
 }
 
 export {

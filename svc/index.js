@@ -14,6 +14,11 @@ config.defaults({
 });
 config.save();
 
+//Configure morgan remote-address
+morgan.token('remote-addr', (req, res) => {
+    return req.headers.hasOwnProperty('x-forwarded-for') ? req.headers['x-forwarded-for'] : req.connection.remoteAddress;
+});
+
 //Prepare express
 console.log('Initializing express using port ' + config.get('port') + '...');
 const app = express();

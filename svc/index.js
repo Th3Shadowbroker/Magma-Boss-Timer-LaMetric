@@ -24,6 +24,7 @@ console.log('Initializing express using port ' + config.get('port') + '...');
 const app = express();
 app.use(morgan('common'));
 app.get('/', (req, res) => handleRequest(req, res));
+app.get('/getEstimation', (req, res) => handleRequest(req, res));
 app.use('/privacy', express.static(__dirname + '/../public/privacy.html'));
 
 try

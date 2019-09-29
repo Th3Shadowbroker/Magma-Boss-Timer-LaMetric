@@ -4,9 +4,6 @@
 <dt><a href="#LaMetric">LaMetric</a></dt>
 <dd><p>A class that provides utility functions for the LaMetric json-format.</p>
 </dd>
-<dt><a href="#BossTimer">MagmaBossTimer</a></dt>
-<dd><p>A class for contacting the Magma-Boss-Timer.</p>
-</dd>
 <dt><a href="#JsonConfiguration">JsonConfiguration</a></dt>
 <dd><p>Basic json-configuration.</p>
 </dd>
@@ -18,7 +15,7 @@
 ## Functions
 
 <dl>
-<dt><a href="#handleRequest">handleRequest(req, res)</a></dt>
+<dt><a href="#handleLegacyRequest">handleLegacyRequest(req, res)</a></dt>
 <dd><p>Handles incoming requests.</p>
 </dd>
 <dt><a href="#applyLeadingZeros">applyLeadingZeros(num, req)</a> ⇒ <code>string</code> | <code>number</code></dt>
@@ -45,18 +42,6 @@ Generates a response for LaMetric devices.
 | message | <code>string</code> | The message. |
 | icon | <code>string</code> | The code of the icon that should be used. |
 
-<a name="MagmaBossTimer"></a>
-
-## MagmaBossTimer
-A class for contacting the Magma-Boss-Timer.
-
-**Kind**: global class  
-<a name="MagmaBossTimer.fetchEstimation"></a>
-
-### MagmaBossTimer.fetchEstimation() ⇒ <code>Promise.&lt;object&gt;</code>
-Fetches the estimated spawn time from the Magma-Boss-Timer api.
-
-**Kind**: static method of [<code>MagmaBossTimer</code>](#BossTimer)  
 <a name="JsonConfiguration"></a>
 
 ## JsonConfiguration
@@ -169,9 +154,9 @@ Returns an object which contains the difference between present and estimation.
 | --- | --- | --- |
 | estimation | <code>int</code> | The unix timestamp of the estimation. |
 
-<a name="handleRequest"></a>
+<a name="handleLegacyRequest"></a>
 
-## handleRequest(req, res)
+## handleLegacyRequest(req, res)
 Handles incoming requests.
 
 **Kind**: global function  

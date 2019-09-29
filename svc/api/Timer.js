@@ -2,6 +2,9 @@ import https from 'https';
 import mcache from 'memory-cache';
 import {config} from './../index';
 
+/**
+ * A class used to fetch data from <a href="https://github.com/InventivetalentDev">InventivetalentDevs</a> api.
+ */
 class Timer {
 
     /**

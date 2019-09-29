@@ -4,6 +4,9 @@
 <dt><a href="#LaMetric">LaMetric</a></dt>
 <dd><p>A class that provides utility functions for the LaMetric json-format.</p>
 </dd>
+<dt><a href="#Timer">Timer</a></dt>
+<dd><p>A class used to fetch data from <a href="https://github.com/InventivetalentDev">InventivetalentDevs</a> api.</p>
+</dd>
 <dt><a href="#JsonConfiguration">JsonConfiguration</a></dt>
 <dd><p>Basic json-configuration.</p>
 </dd>
@@ -42,6 +45,34 @@ Generates a response for LaMetric devices.
 | message | <code>string</code> | The message. |
 | icon | <code>string</code> | The code of the icon that should be used. |
 
+<a name="Timer"></a>
+
+## Timer
+A class used to fetch data from <a href="https://github.com/InventivetalentDev">InventivetalentDevs</a> api.
+
+**Kind**: global class  
+
+* [Timer](#Timer)
+    * [.fetchData(timerKey)](#Timer.fetchData) ⇒ <code>Promise.&lt;object&gt;</code>
+    * [.magmaBoss()](#Timer.magmaBoss) ⇒ <code>Promise.&lt;Object&gt;</code>
+
+<a name="Timer.fetchData"></a>
+
+### Timer.fetchData(timerKey) ⇒ <code>Promise.&lt;object&gt;</code>
+Fetches the estimated spawn time from the Magma-Boss-Timer api.
+
+**Kind**: static method of [<code>Timer</code>](#Timer)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| timerKey | <code>string</code> | The key of the the timers requestUrl item. |
+
+<a name="Timer.magmaBoss"></a>
+
+### Timer.magmaBoss() ⇒ <code>Promise.&lt;Object&gt;</code>
+Get the estimation for the magma-boss.
+
+**Kind**: static method of [<code>Timer</code>](#Timer)  
 <a name="JsonConfiguration"></a>
 
 ## JsonConfiguration

@@ -47,6 +47,10 @@ function handleRequest(req, res) {
                 timerPromise = Timer.magmaBoss();
                 break;
 
+            case 'newYear':
+                timerPromise = Timer.newYear();
+                break;
+
             default:
                 res.sendStatus(404);
                 return;
@@ -57,9 +61,13 @@ function handleRequest(req, res) {
                 let diff = TimeUtility.diff(result['estimate']);
                 let response;
 
-                if ( diff.h > 0 || diff.m > 0 )
-                {
-                    response = LaMetric.generateResponse(util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon')[timerName]);
+                if ( diff.d > 0 || diff.h > 0 || diff.m > 0 )
+                {                                    // When time difference to the estimation is at least 1 day.
+                    let formattedText = diff.d > 0 ? util.format('%s:%s:%s', applyLeadingZeros(diff.d, req), applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)) :
+                                                     // When time difference is less than 1 day.
+                                                     util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req));
+
+                    response = LaMetric.generateResponse(formattedText, config.get('icon')[timerName]);
                 } else {
                     let nowMessageSet = req.query.hasOwnProperty('nowMessage') && req.query['nowMessage'].replace(' ', '').length > 0 ;
                     response = LaMetric.generateResponse(nowMessageSet ? req.query['nowMessage'] : util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon')[timerName]);

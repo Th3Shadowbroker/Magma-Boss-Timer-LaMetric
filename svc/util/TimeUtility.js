@@ -16,6 +16,7 @@ class TimeUtility {
         let diff = moment.duration(estimationMoment.diff(presentMoment));
 
         return {
+            d: diff.days(),
             h: diff.hours(),
             m: diff.minutes(),
         }

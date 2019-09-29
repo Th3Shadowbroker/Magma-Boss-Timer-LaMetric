@@ -54,10 +54,18 @@ class Timer {
 
     /**
      * Get the estimation for the magma-boss.
-     * @return {Promise<Object>}
+     * @return {Promise<object>}
      */
     static magmaBoss() {
         return this.fetchData('magmaBoss');
+    }
+
+    /**
+     * Get the estimation for the next new-year event.
+     * @return {Promise<object>}
+     */
+    static newYear() {
+        return this.fetchData('newYear');
     }
 
 }

@@ -10,10 +10,12 @@ config.defaults({
    port: '2207',
    cacheTimeout: '15',
    requestUrl: {
-       magmaBoss: 'https://hypixel-api.inventivetalent.org/api/skyblock/bosstimer/magma/estimatedSpawn'
+       magmaBoss: 'https://hypixel-api.inventivetalent.org/api/skyblock/bosstimer/magma/estimatedSpawn',
+       newYear: 'https://hypixel-api.inventivetalent.org/api/skyblock/newyear/estimate'
    },
    icon: {
-       magmaBoss: 'i30969'
+       magmaBoss: 'i30969',
+       newYear: '29438'
    }
 });
 config.save();

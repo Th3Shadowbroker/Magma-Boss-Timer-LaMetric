@@ -29,10 +29,18 @@ morgan.token('remote-addr', (req, res) => {
 console.log('Initializing express using port ' + config.get('port') + '...');
 const app = express();
 app.use(morgan('common'));
+
+//Legacy
 app.get('/', (req, res) => handleLegacyRequest(req, res));
 app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
+
+//Current path
 app.get('/getEstimation/:timerName', (req,res) => handleRequest(req, res));
+
+//Info resources
 app.use('/privacy', express.static(__dirname + '/../public/privacy.html'));
+app.use('/issue', (req, res) => res.redirect(process.env.npm_package_bugs_url));
+app.use('/issues', (req, res) => res.redirect(process.env.npm_package_bugs_url));
 
 try
 {

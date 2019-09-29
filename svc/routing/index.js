@@ -1,7 +1,6 @@
 import LaMetric from "../api/LaMetric";
 import {BossTimer, TimeUtility} from "../util/";
 import util from 'util';
-import mcache from 'memory-cache';
 import {config} from './../index';
 
 /**
@@ -10,35 +9,29 @@ import {config} from './../index';
  * @param res {Response}
  */
 function handleRequest(req, res) {
+    BossTimer.fetchEstimation()
+        .then(
+            result => {
+                let diff = TimeUtility.diff(result['estimate']);
+                let response;
 
-    //Check cache to prevent mass requests to the mbt-api
-    let cacheKey = '__mbt-lametric__response-cache';
-    let cachedResponse = mcache.get(cacheKey);
-
-    if (cachedResponse)
-    {
-        res.json(cachedResponse);
-    }
-    else
-    {
-        //Fetch data from mbt-api
-        BossTimer.fetchEstimation()
-            .then(
-                result => {
-                    const diff = TimeUtility.diff(result['estimate']);
-                    let response = LaMetric.generateResponse( util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon') );
-                    mcache.put(cacheKey, response, config.get('cacheTimeout') * 1000);
-                    res.json(response);
+                if (diff.h > 0 && diff.m > 0)
+                {
+                    response = LaMetric.generateResponse(util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon'))
+                } else {
+                    let nowMessageSet = req.query.hasOwnProperty('nowMessage');
+                    response = LaMetric.generateResponse(nowMessageSet ? req.query['nowMessage'] : 'now!', config.get('icon'));
                 }
-            )
-            .catch(
-                reason => {
-                    console.log(reason);
-                    res.json(LaMetric.generateResponse( 'Err ' + reason.statusCode, config.get('icon') ));
-                }
-            )
-    }
 
+                res.json(response);
+            }
+        )
+        .catch(
+            reason => {
+                console.log(reason);
+                res.json(LaMetric.generateResponse('Err ' + reason.statusCode, config.get('icon')));
+            }
+        )
 }
 
 /**

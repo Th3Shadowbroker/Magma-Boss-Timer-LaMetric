@@ -9,8 +9,9 @@
     "docs": "jsdoc2md --files svc/*/*.js > docs.md"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Th3Shadowbroker",
+  "license": "MIT",
+  "repository": "https://github.com/Th3Shadowbroker/Magma-Boss-Timer-LaMetric",
   "dependencies": {
     "express": "^4.17.1",
     "memory-cache": "^0.2.0",

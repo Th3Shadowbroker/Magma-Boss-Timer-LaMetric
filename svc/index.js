@@ -1,7 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
-import {handleRequest} from "./routing";
-import {JsonConfiguration} from "./util";
+import {handleRequest, handleLegacyRequest} from "./routing/routes";
+import JsonConfiguration from "./util/JsonConfiguration";
 
 //Prepare config
 console.log('Loading configuration...');
@@ -9,8 +9,12 @@ const config = new JsonConfiguration(__dirname + '/../svc.config.json');
 config.defaults({
    port: '2207',
    cacheTimeout: '15',
-   requestUrl: 'https://hypixel-api.inventivetalent.org/api/skyblock/bosstimer/magma/estimatedSpawn',
-   icon: 'i30969'
+   requestUrl: {
+       magmaBoss: 'https://hypixel-api.inventivetalent.org/api/skyblock/bosstimer/magma/estimatedSpawn'
+   },
+   icon: {
+       magmaBoss: 'i30969'
+   }
 });
 config.save();
 
@@ -23,8 +27,9 @@ morgan.token('remote-addr', (req, res) => {
 console.log('Initializing express using port ' + config.get('port') + '...');
 const app = express();
 app.use(morgan('common'));
-app.get('/', (req, res) => handleRequest(req, res));
-app.get('/getEstimation', (req, res) => handleRequest(req, res));
+app.get('/', (req, res) => handleLegacyRequest(req, res));
+app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
+app.get('/getEstimation/:timerName', (req,res) => handleRequest(req, res));
 app.use('/privacy', express.static(__dirname + '/../public/privacy.html'));
 
 try

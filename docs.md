@@ -4,7 +4,7 @@
 <dt><a href="#LaMetric">LaMetric</a></dt>
 <dd><p>A class that provides utility functions for the LaMetric json-format.</p>
 </dd>
-<dt><a href="#BossTimer">BossTimer</a></dt>
+<dt><a href="#BossTimer">MagmaBossTimer</a></dt>
 <dd><p>A class for contacting the Magma-Boss-Timer.</p>
 </dd>
 <dt><a href="#JsonConfiguration">JsonConfiguration</a></dt>
@@ -45,18 +45,18 @@ Generates a response for LaMetric devices.
 | message | <code>string</code> | The message. |
 | icon | <code>string</code> | The code of the icon that should be used. |
 
-<a name="BossTimer"></a>
+<a name="MagmaBossTimer"></a>
 
-## BossTimer
+## MagmaBossTimer
 A class for contacting the Magma-Boss-Timer.
 
 **Kind**: global class  
-<a name="BossTimer.fetchEstimation"></a>
+<a name="MagmaBossTimer.fetchEstimation"></a>
 
-### BossTimer.fetchEstimation() ⇒ <code>Promise.&lt;object&gt;</code>
+### MagmaBossTimer.fetchEstimation() ⇒ <code>Promise.&lt;object&gt;</code>
 Fetches the estimated spawn time from the Magma-Boss-Timer api.
 
-**Kind**: static method of [<code>BossTimer</code>](#BossTimer)  
+**Kind**: static method of [<code>MagmaBossTimer</code>](#BossTimer)  
 <a name="JsonConfiguration"></a>
 
 ## JsonConfiguration

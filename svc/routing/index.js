@@ -19,7 +19,7 @@ function handleRequest(req, res) {
                 {
                     response = LaMetric.generateResponse(util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon'))
                 } else {
-                    let nowMessageSet = req.query.hasOwnProperty('nowMessage') && req.query['nowMessage'].length > 0;
+                    let nowMessageSet = req.query.hasOwnProperty('nowMessage') && req.query['nowMessage'].replace(' ', '').length > 0 ;
                     response = LaMetric.generateResponse(nowMessageSet ? req.query['nowMessage'] : util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon'));
                 }
 

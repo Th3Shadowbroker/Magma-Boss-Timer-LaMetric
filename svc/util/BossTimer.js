@@ -1,5 +1,6 @@
 import https from 'https';
 import {config} from './../';
+import mcache from 'memory-cache';
 
 /**
  * A class for contacting the Magma-Boss-Timer.
@@ -13,6 +14,17 @@ class BossTimer {
     static fetchEstimation() {
         return new Promise(
             (resolve, reject) => {
+
+                // Check if request were already made
+                let cacheKey = '__mbt-lametric__response-cache';
+                let cachedResponse = mcache.get(cacheKey);
+                if (cachedResponse)
+                {
+                    resolve(cachedResponse);
+                    return;
+                }
+
+                // Fetch new data
                 let data = '';
                 let req = https.get(
                     config.get('requestUrl'),
@@ -26,7 +38,11 @@ class BossTimer {
 
                     res => {
                         res.on('data', (chunk) => data += chunk);
-                        res.on('end', () => resolve(JSON.parse(data)));
+                        res.on('end', () => {
+                            let parsedData = JSON.parse(data);
+                            mcache.put(cacheKey, parsedData, config.get('cacheTimeout') * 1000);
+                            resolve(parsedData);
+                        });
                     }
                 );
 

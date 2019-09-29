@@ -15,9 +15,9 @@ function handleRequest(req, res) {
                 let diff = TimeUtility.diff(result['estimate']);
                 let response;
 
-                if (diff.h > 0 && diff.m > 0)
+                if ( diff.h > 0 || diff.m > 0 )
                 {
-                    response = LaMetric.generateResponse(util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon'))
+                    response = LaMetric.generateResponse(util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon'));
                 } else {
                     let nowMessageSet = req.query.hasOwnProperty('nowMessage') && req.query['nowMessage'].replace(' ', '').length > 0 ;
                     response = LaMetric.generateResponse(nowMessageSet ? req.query['nowMessage'] : util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon'));

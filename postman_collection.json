@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "62edce98-befa-44e9-9ddd-afbc260ecfc1",
+		"name": "MBT-LaMetric",
+		"description": "A postman collection to test the services endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Magma Boss",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ce958b4-05c7-449e-9aa5-09b68f56063a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema =  {",
+							"  \"definitions\": {},",
+							"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"  \"$id\": \"http://example.com/root.json\",",
+							"  \"type\": \"object\",",
+							"  \"title\": \"The Root Schema\",",
+							"  \"required\": [",
+							"    \"frames\"",
+							"  ],",
+							"  \"properties\": {",
+							"    \"frames\": {",
+							"      \"$id\": \"#/properties/frames\",",
+							"      \"type\": \"array\",",
+							"      \"title\": \"The Frames Schema\",",
+							"      \"items\": {",
+							"        \"$id\": \"#/properties/frames/items\",",
+							"        \"type\": \"object\",",
+							"        \"title\": \"The Items Schema\",",
+							"        \"required\": [",
+							"          \"text\",",
+							"          \"icon\"",
+							"        ],",
+							"        \"properties\": {",
+							"          \"text\": {",
+							"            \"$id\": \"#/properties/frames/items/properties/text\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Text Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"1:23\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"icon\": {",
+							"            \"$id\": \"#/properties/frames/items/properties/icon\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Icon Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"i30969\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          }",
+							"        }",
+							"      }",
+							"    }",
+							"  }",
+							"};",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/getEstimation/magmaBoss",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"getEstimation",
+						"magmaBoss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "467e54a7-54ba-4485-9baa-5d8debbd32db",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema =  {",
+							"  \"definitions\": {},",
+							"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"  \"$id\": \"http://example.com/root.json\",",
+							"  \"type\": \"object\",",
+							"  \"title\": \"The Root Schema\",",
+							"  \"required\": [",
+							"    \"frames\"",
+							"  ],",
+							"  \"properties\": {",
+							"    \"frames\": {",
+							"      \"$id\": \"#/properties/frames\",",
+							"      \"type\": \"array\",",
+							"      \"title\": \"The Frames Schema\",",
+							"      \"items\": {",
+							"        \"$id\": \"#/properties/frames/items\",",
+							"        \"type\": \"object\",",
+							"        \"title\": \"The Items Schema\",",
+							"        \"required\": [",
+							"          \"text\",",
+							"          \"icon\"",
+							"        ],",
+							"        \"properties\": {",
+							"          \"text\": {",
+							"            \"$id\": \"#/properties/frames/items/properties/text\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Text Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"1:23\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"icon\": {",
+							"            \"$id\": \"#/properties/frames/items/properties/icon\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Icon Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"i30969\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          }",
+							"        }",
+							"      }",
+							"    }",
+							"  }",
+							"};",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/getEstimation/newYear",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"getEstimation",
+						"newYear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dark Auction",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ab177bd-7882-441c-9e55-7c9bdb55dddf",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var schema =  {",
+							"  \"definitions\": {},",
+							"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",",
+							"  \"$id\": \"http://example.com/root.json\",",
+							"  \"type\": \"object\",",
+							"  \"title\": \"The Root Schema\",",
+							"  \"required\": [",
+							"    \"frames\"",
+							"  ],",
+							"  \"properties\": {",
+							"    \"frames\": {",
+							"      \"$id\": \"#/properties/frames\",",
+							"      \"type\": \"array\",",
+							"      \"title\": \"The Frames Schema\",",
+							"      \"items\": {",
+							"        \"$id\": \"#/properties/frames/items\",",
+							"        \"type\": \"object\",",
+							"        \"title\": \"The Items Schema\",",
+							"        \"required\": [",
+							"          \"text\",",
+							"          \"icon\"",
+							"        ],",
+							"        \"properties\": {",
+							"          \"text\": {",
+							"            \"$id\": \"#/properties/frames/items/properties/text\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Text Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"1:23\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          },",
+							"          \"icon\": {",
+							"            \"$id\": \"#/properties/frames/items/properties/icon\",",
+							"            \"type\": \"string\",",
+							"            \"title\": \"The Icon Schema\",",
+							"            \"default\": \"\",",
+							"            \"examples\": [",
+							"              \"i30969\"",
+							"            ],",
+							"            \"pattern\": \"^(.*)$\"",
+							"          }",
+							"        }",
+							"      }",
+							"    }",
+							"  }",
+							"};",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/getEstimation/darkAuction",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"getEstimation",
+						"darkAuction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid Timer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad92a002-517d-41f1-8846-01ae14e842e7",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/getEstimation/xyz",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"getEstimation",
+						"xyz"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "cce1a34f-d9d4-4b0c-9635-095a72ca7118",
+			"key": "host",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"id": "ff909c32-647a-4e06-aaf1-c852f173dbe6",
+			"key": "port",
+			"value": "2207",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

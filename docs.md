@@ -21,6 +21,9 @@
 <dt><a href="#handleLegacyRequest">handleLegacyRequest(req, res)</a></dt>
 <dd><p>Handles incoming requests.</p>
 </dd>
+<dt><a href="#handleRequest">handleRequest(req, res)</a></dt>
+<dd><p>Handles requests with timer-names.</p>
+</dd>
 <dt><a href="#applyLeadingZeros">applyLeadingZeros(num, req)</a> ⇒ <code>string</code> | <code>number</code></dt>
 <dd><p>Applies the leadingZeros query-parameter.</p>
 </dd>
@@ -54,7 +57,9 @@ A class used to fetch data from <a href="https://github.com/InventivetalentDev">
 
 * [Timer](#Timer)
     * [.fetchData(timerKey)](#Timer.fetchData) ⇒ <code>Promise.&lt;object&gt;</code>
-    * [.magmaBoss()](#Timer.magmaBoss) ⇒ <code>Promise.&lt;Object&gt;</code>
+    * [.magmaBoss()](#Timer.magmaBoss) ⇒ <code>Promise.&lt;object&gt;</code>
+    * [.newYear()](#Timer.newYear) ⇒ <code>Promise.&lt;object&gt;</code>
+    * [.darkAuction()](#Timer.darkAuction) ⇒ <code>Promise.&lt;object&gt;</code>
 
 <a name="Timer.fetchData"></a>
 
@@ -69,8 +74,20 @@ Fetches the estimated spawn time from the Magma-Boss-Timer api.
 
 <a name="Timer.magmaBoss"></a>
 
-### Timer.magmaBoss() ⇒ <code>Promise.&lt;Object&gt;</code>
+### Timer.magmaBoss() ⇒ <code>Promise.&lt;object&gt;</code>
 Get the estimation for the magma-boss.
+
+**Kind**: static method of [<code>Timer</code>](#Timer)  
+<a name="Timer.newYear"></a>
+
+### Timer.newYear() ⇒ <code>Promise.&lt;object&gt;</code>
+Get the estimation for the next new-year event.
+
+**Kind**: static method of [<code>Timer</code>](#Timer)  
+<a name="Timer.darkAuction"></a>
+
+### Timer.darkAuction() ⇒ <code>Promise.&lt;object&gt;</code>
+Get the estimation for the next dark-auction.
 
 **Kind**: static method of [<code>Timer</code>](#Timer)  
 <a name="JsonConfiguration"></a>
@@ -189,6 +206,18 @@ Returns an object which contains the difference between present and estimation.
 
 ## handleLegacyRequest(req, res)
 Handles incoming requests.
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| req | <code>Request</code> | 
+| res | <code>Response</code> | 
+
+<a name="handleRequest"></a>
+
+## handleRequest(req, res)
+Handles requests with timer-names.
 
 **Kind**: global function  
 

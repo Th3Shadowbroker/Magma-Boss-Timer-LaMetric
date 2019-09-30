@@ -16,9 +16,7 @@
     "express": "^4.17.1",
     "memory-cache": "^0.2.0",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.26",
-    "morgan": "^1.9.1",
-    "nodemon": "^1.19.2"
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "@babel/core": "7.6.2",

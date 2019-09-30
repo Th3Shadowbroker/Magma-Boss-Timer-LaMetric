@@ -5,4 +5,6 @@ This tiny webservice remaps the information from [inventivetalentDevs](https://g
 Magma-Boss Timer for Hypixels SkyBlock into values for [LaMetric](https://lametric.com/) smartwatches.
 
 ### Where to download?
-The app is available on the [LaMetric Marketplace](https://apps.lametric.com/apps/hypixel_skyblock_magma_boss_timer/9053).
+The apps are available on the LaMetric marketplace:
+- [Magma Boss Timer](https://apps.lametric.com/apps/hypixel_skyblock_magma_boss_timer/9053).
+- [Dark Auction Timer](https://apps.lametric.com/apps/hypixel_skyblock_dark_auction_timer/9172)

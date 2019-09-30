@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "62edce98-befa-44e9-9ddd-afbc260ecfc1",
+		"_postman_id": "854f8387-d768-455d-94fc-22b9f4586fd2",
 		"name": "MBT-LaMetric",
 		"description": "A postman collection to test the services endpoints.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -262,6 +262,25 @@
 					"path": [
 						"getEstimation",
 						"darkAuction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{host}}:{{port}}/getEstimations",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"getEstimations"
 					]
 				}
 			},

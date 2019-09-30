@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-import {handleRequest, handleLegacyRequest} from "./routing/routes";
+import {handleRequest, handleLegacyRequest, handleSummary} from "./routing/routes";
 import JsonConfiguration from "./util/JsonConfiguration";
 
 //Prepare config
@@ -36,8 +36,12 @@ app.use(morgan('common'));
 app.get('/', (req, res) => handleLegacyRequest(req, res));
 app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
 
-//Current path
+//Current paths
 app.get('/getEstimation/:timerName', (req,res) => handleRequest(req, res));
+app.get('/getEstimations', (req,res) => handleSummary(req, res).then(r => res.json(r)).catch( reason => {
+    console.log(reason.message);
+    res.sendStatus(500);
+} ));
 
 //Info resources
 app.use('/privacy', express.static(__dirname + '/../public/privacy.html'));

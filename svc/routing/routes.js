@@ -65,26 +65,7 @@ function handleRequest(req, res) {
                 return;
         }
 
-        timerPromise.then(
-            result => {
-                let diff = TimeUtility.diff(result['estimate']);
-                let response;
-
-                if ( diff.d > 0 || diff.h > 0 || diff.m > 0 )
-                {                                    // When time difference to the estimation is at least 1 day.
-                    let formattedText = diff.d > 0 ? util.format('%s:%s:%s', applyLeadingZeros(diff.d, req), applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)) :
-                                                     // When time difference is less than 1 day.
-                                                     util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req));
-
-                    response = LaMetric.generateResponse(formattedText, config.get('icon')[timerName]);
-                } else {
-                    let nowMessageSet = req.query.hasOwnProperty('nowMessage') && req.query['nowMessage'].replace(' ', '').length > 0 ;
-                    response = LaMetric.generateResponse(nowMessageSet ? req.query['nowMessage'] : util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon')[timerName]);
-                }
-
-                res.json(response);
-            }
-        )
+        timerPromise.then( result => res.json( stringifyResults(req, result, timerName) ) )
             .catch(
                 reason => {
                     console.log(reason);
@@ -92,6 +73,60 @@ function handleRequest(req, res) {
                 }
             )
     }
+}
+
+/**
+ * "Stingifies" the results of a fetched result.
+ * @param req {Request}
+ * @param result {object}
+ * @param timerName {string}
+ * @return {{frames: {icon: *, text: *}[]}}
+ */
+function stringifyResults(req, result, timerName) {
+    let diff = TimeUtility.diff(result['estimate']);
+    let response;
+
+    if ( diff.d > 0 || diff.h > 0 || diff.m > 0 )
+    {                                    // When time difference to the estimation is at least 1 day.
+        let formattedText = diff.d > 0 ? util.format('%s:%s:%s', applyLeadingZeros(diff.d, req), applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)) :
+                                        // When time difference is less than 1 day.
+                                        util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req));
+
+        response = LaMetric.generateResponse(formattedText, config.get('icon')[timerName]);
+    } else {
+        let nowMessageSet = req.query.hasOwnProperty('nowMessage') && req.query['nowMessage'].replace(' ', '').length > 0 ;
+        response = LaMetric.generateResponse(nowMessageSet ? req.query['nowMessage'] : util.format('%s:%s', applyLeadingZeros(diff.h, req), applyLeadingZeros(diff.m, req)), config.get('icon')[timerName]);
+    }
+
+    return response;
+}
+
+/**
+ * Handles requests to the <i>getEstimations</i> path.
+ * @param req {Request}
+ * @param res {Response}
+ * @return {Promise<{frames: *}>}
+ */
+async function handleSummary(req, res) {
+    let magmaBoss = req.query.hasOwnProperty('magmaBoss') ? req.query.magmaBoss === 'true' : true;
+    let darkAuction = req.query.hasOwnProperty('darkAuction') ? req.query.darkAuction === 'true' : true;
+    let summary = [];
+
+    // Magma-Boss timer requested
+    if (magmaBoss) {
+        await Timer.magmaBoss().then( result =>  {
+            summary.push( stringifyResults(req, result, 'magmaBoss').frames[0] );
+        } );
+    }
+
+    // Dark-Auction timer requested
+    if (darkAuction) {
+        await Timer.darkAuction().then( result => {
+            summary.push( stringifyResults(req, result, 'darkAuction').frames[0] );
+        } );
+    }
+
+    return {frames: summary};
 }
 
 /**
@@ -111,5 +146,6 @@ function applyLeadingZeros(num, req) {
 
 export {
     handleLegacyRequest,
-    handleRequest
+    handleRequest,
+    handleSummary
 }

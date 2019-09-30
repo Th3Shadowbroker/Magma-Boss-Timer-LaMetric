@@ -35,6 +35,11 @@ function handleLegacyRequest(req, res) {
         )
 }
 
+/**
+ * Handles requests with timer-names.
+ * @param req {Request}
+ * @param res {Response}
+ */
 function handleRequest(req, res) {
     if (req.params.hasOwnProperty('timerName')) {
         let timerName = req.params.timerName;
@@ -49,6 +54,10 @@ function handleRequest(req, res) {
 
             case 'newYear':
                 timerPromise = Timer.newYear();
+                break;
+
+            case 'darkAuction':
+                timerPromise = Timer.darkAuction();
                 break;
 
             default:

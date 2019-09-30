@@ -11,11 +11,13 @@ config.defaults({
    cacheTimeout: '15',
    requestUrl: {
        magmaBoss: 'https://hypixel-api.inventivetalent.org/api/skyblock/bosstimer/magma/estimatedSpawn',
-       newYear: 'https://hypixel-api.inventivetalent.org/api/skyblock/newyear/estimate'
+       newYear: 'https://hypixel-api.inventivetalent.org/api/skyblock/newyear/estimate',
+       darkAuction: 'https://hypixel-api.inventivetalent.org/api/skyblock/darkauction/estimate'
    },
    icon: {
        magmaBoss: 'i30969',
-       newYear: '29438'
+       newYear: '29438',
+       darkAuction: '22961'
    }
 });
 config.save();

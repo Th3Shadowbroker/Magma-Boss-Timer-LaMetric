@@ -68,5 +68,13 @@ class Timer {
         return this.fetchData('newYear');
     }
 
+    /**
+     * Get the estimation for the next dark-auction.
+     * @return {Promise<object>}
+     */
+    static darkAuction() {
+        return this.fetchData('darkAuction');
+    }
+
 }
 export default Timer;

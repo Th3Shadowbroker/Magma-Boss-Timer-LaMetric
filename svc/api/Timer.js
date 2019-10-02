@@ -76,5 +76,13 @@ class Timer {
         return this.fetchData('darkAuction');
     }
 
+    /**
+     * Get the estimation for the interest timer.
+     * @return {Promise<object>}
+     */
+    static interest() {
+        return this.fetchData('interest');
+    }
+
 }
 export default Timer;

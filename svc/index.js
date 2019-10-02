@@ -44,9 +44,16 @@ app.get('/getEstimations', (req,res) => handleSummary(req, res).then(r => res.js
 } ));
 
 //Info resources
-app.use('/privacy', express.static(__dirname + '/../public/privacy.html'));
-app.use('/issue', (req, res) => res.redirect(process.env.npm_package_bugs_url));
-app.use('/issues', (req, res) => res.redirect(process.env.npm_package_bugs_url));
+    // Swagger stuff
+    app.use('/swagger.json', express.static(__dirname + '/../public/swagger.json'));
+    app.use('/swagger', express.static(__dirname + '/../public/swagger.html'));
+
+    // Privacy policy
+    app.use('/privacy', express.static(__dirname + '/../public/privacy.html'));
+
+    // Bug tracking
+    app.use('/issue', (req, res) => res.redirect(process.env.npm_package_bugs_url));
+    app.use('/issues', (req, res) => res.redirect(process.env.npm_package_bugs_url));
 
 try
 {

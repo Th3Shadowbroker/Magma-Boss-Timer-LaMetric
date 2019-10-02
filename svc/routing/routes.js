@@ -60,6 +60,10 @@ function handleRequest(req, res) {
                 timerPromise = Timer.darkAuction();
                 break;
 
+            case 'interest':
+                timerPromise = Timer.interest();
+                break;
+
             default:
                 res.sendStatus(404);
                 return;
@@ -73,6 +77,42 @@ function handleRequest(req, res) {
                 }
             )
     }
+}
+
+/**
+ * Handles requests to the <i>getEstimations</i> path.
+ * @param req {Request}
+ * @param res {Response}
+ * @return {Promise<{frames: *}>}
+ */
+async function handleSummary(req, res) {
+    let magmaBoss = req.query.hasOwnProperty('magmaBoss') ? req.query.magmaBoss === 'true' : true;
+    let darkAuction = req.query.hasOwnProperty('darkAuction') ? req.query.darkAuction === 'true' : true;
+    let interest = req.query.hasOwnProperty('interest') ? req.query.interest === 'true' : true;
+    let summary = [];
+
+    // Magma-Boss timer requested
+    if (magmaBoss) {
+        await Timer.magmaBoss().then( result =>  {
+            summary.push( stringifyResults(req, result, 'magmaBoss').frames[0] );
+        } );
+    }
+
+    // Dark-Auction timer requested
+    if (darkAuction) {
+        await Timer.darkAuction().then( result => {
+            summary.push( stringifyResults(req, result, 'darkAuction').frames[0] );
+        } );
+    }
+
+    // Interest timer requested
+    if (interest) {
+        await Timer.interest().then( result => {
+            summary.push( stringifyResults(req, result, 'interest').frames[0] );
+        } );
+    }
+
+    return {frames: summary};
 }
 
 /**
@@ -99,34 +139,6 @@ function stringifyResults(req, result, timerName) {
     }
 
     return response;
-}
-
-/**
- * Handles requests to the <i>getEstimations</i> path.
- * @param req {Request}
- * @param res {Response}
- * @return {Promise<{frames: *}>}
- */
-async function handleSummary(req, res) {
-    let magmaBoss = req.query.hasOwnProperty('magmaBoss') ? req.query.magmaBoss === 'true' : true;
-    let darkAuction = req.query.hasOwnProperty('darkAuction') ? req.query.darkAuction === 'true' : true;
-    let summary = [];
-
-    // Magma-Boss timer requested
-    if (magmaBoss) {
-        await Timer.magmaBoss().then( result =>  {
-            summary.push( stringifyResults(req, result, 'magmaBoss').frames[0] );
-        } );
-    }
-
-    // Dark-Auction timer requested
-    if (darkAuction) {
-        await Timer.darkAuction().then( result => {
-            summary.push( stringifyResults(req, result, 'darkAuction').frames[0] );
-        } );
-    }
-
-    return {frames: summary};
 }
 
 /**

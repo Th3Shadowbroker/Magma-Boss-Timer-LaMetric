@@ -1,0 +1,127 @@
+{
+  "swagger": "2.0",
+  "basePath": "/",
+  "host": "lametric.th3shadowbroker.dev",
+  "schemes": [
+    "https"
+  ],
+  "info": {
+    "version": "1.2.0",
+    "title": "Magma-Boss-Timer-LaMetric",
+    "description": "A service that transforms the information from inventivetalents Timers into LaMetric interfaces.",
+    "contact": {
+      "name": "Th3Shadowbroker",
+      "url": "https://th3shadowbroker.dev"
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Magma-Boss-Timer LaMetric interface",
+        "description": "Returns the LaMetric interface for the Magma-Boss-Timer.",
+        "deprecated": true,
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Deprecated paths"
+        ]
+      }
+    },
+    "/getEstimation": {
+      "get": {
+        "summary": "Magma-Boss-Timer LaMetric interface",
+        "description": "Returns the LaMetric interface for the Magma-Boss-Timer.",
+        "deprecated": true,
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "tags": [
+          "Deprecated paths"
+        ]
+      }
+    },
+    "/getEstimation/{timerName}": {
+      "get": {
+        "summary": "Timer specific interface",
+        "description": "Returns the LaMetric interface for the given timerName.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "tags": [
+          "Current paths"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "timerName",
+          "in": "path",
+          "required": true,
+          "description": "The name of the timer.",
+          "type": "string",
+          "enum": [
+            "magmaBoss",
+            "darkAuction",
+            "newYear"
+          ]
+        }
+      ]
+    },
+    "/getEstimations": {
+      "get": {
+        "summary": "Summary of all registered timers",
+        "description": "Returns a LaMetric JSON-object containing all available timer interfaces.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "tags": [
+          "Current paths"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "magmaBoss",
+          "in": "query",
+          "required": false,
+          "description": "Enables the magmaBoss-timer.",
+          "type": "boolean"
+        },
+        {
+          "name": "darkAuction",
+          "in": "query",
+          "required": false,
+          "description": "Enables the darkAuction-timer.",
+          "type": "boolean"
+        }
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Current paths",
+      "description": "All paths that are currently available."
+    },
+    {
+      "name": "Deprecated paths",
+      "description": "Paths that still exists for legacy version but should be no longer used."
+    }
+  ],
+  "externalDocs": {
+    "description": "Full documentation",
+    "url": "https://github.com/Th3Shadowbroker/Magma-Boss-Timer-LaMetric/blob/master/docs.md"
+  }
+}

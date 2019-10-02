@@ -71,7 +71,8 @@
           "enum": [
             "magmaBoss",
             "darkAuction",
-            "newYear"
+            "newYear",
+            "interest"
           ]
         }
       ]

@@ -98,14 +98,21 @@
           "name": "magmaBoss",
           "in": "query",
           "required": false,
-          "description": "Enables the magmaBoss-timer.",
+          "description": "Enables/disables the magmaBoss-timer.",
           "type": "boolean"
         },
         {
           "name": "darkAuction",
           "in": "query",
           "required": false,
-          "description": "Enables the darkAuction-timer.",
+          "description": "Enables/disables the darkAuction-timer.",
+          "type": "boolean"
+        },
+        {
+          "name": "interest",
+          "in": "query",
+          "required": false,
+          "description": "Enables/disables the interest-timer.",
           "type": "boolean"
         }
       ]

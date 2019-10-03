@@ -83,7 +83,7 @@ function handleRequest(req, res) {
  * Handles requests to the <i>getEstimations</i> path.
  * @param req {Request}
  * @param res {Response}
- * @return {Promise<{frames: *}>}
+ * @return {Promise<{frames: {test: string, icon: string}}>}
  */
 async function handleSummary(req, res) {
     let magmaBoss = req.query.hasOwnProperty('magmaBoss') ? req.query.magmaBoss === 'true' : true;
@@ -120,7 +120,7 @@ async function handleSummary(req, res) {
  * @param req {Request}
  * @param result {object}
  * @param timerName {string}
- * @return {{frames: {icon: *, text: *}[]}}
+ * @return {{frames: {text: string, icon: string}}}
  */
 function stringifyResults(req, result, timerName) {
     let diff = TimeUtility.diff(result['estimate']);

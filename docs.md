@@ -24,6 +24,12 @@
 <dt><a href="#handleRequest">handleRequest(req, res)</a></dt>
 <dd><p>Handles requests with timer-names.</p>
 </dd>
+<dt><a href="#handleSummary">handleSummary(req, res)</a> ⇒ <code>Promise.&lt;{frames: {test: string, icon: string}}&gt;</code></dt>
+<dd><p>Handles requests to the <i>getEstimations</i> path.</p>
+</dd>
+<dt><a href="#stringifyResults">stringifyResults(req, result, timerName)</a> ⇒ <code>Object</code></dt>
+<dd><p>&quot;Stingifies&quot; the results of a fetched result.</p>
+</dd>
 <dt><a href="#applyLeadingZeros">applyLeadingZeros(num, req)</a> ⇒ <code>string</code> | <code>number</code></dt>
 <dd><p>Applies the leadingZeros query-parameter.</p>
 </dd>
@@ -60,6 +66,7 @@ A class used to fetch data from <a href="https://github.com/InventivetalentDev">
     * [.magmaBoss()](#Timer.magmaBoss) ⇒ <code>Promise.&lt;object&gt;</code>
     * [.newYear()](#Timer.newYear) ⇒ <code>Promise.&lt;object&gt;</code>
     * [.darkAuction()](#Timer.darkAuction) ⇒ <code>Promise.&lt;object&gt;</code>
+    * [.interest()](#Timer.interest) ⇒ <code>Promise.&lt;object&gt;</code>
 
 <a name="Timer.fetchData"></a>
 
@@ -88,6 +95,12 @@ Get the estimation for the next new-year event.
 
 ### Timer.darkAuction() ⇒ <code>Promise.&lt;object&gt;</code>
 Get the estimation for the next dark-auction.
+
+**Kind**: static method of [<code>Timer</code>](#Timer)  
+<a name="Timer.interest"></a>
+
+### Timer.interest() ⇒ <code>Promise.&lt;object&gt;</code>
+Get the estimation for the interest timer.
 
 **Kind**: static method of [<code>Timer</code>](#Timer)  
 <a name="JsonConfiguration"></a>
@@ -225,6 +238,31 @@ Handles requests with timer-names.
 | --- | --- |
 | req | <code>Request</code> | 
 | res | <code>Response</code> | 
+
+<a name="handleSummary"></a>
+
+## handleSummary(req, res) ⇒ <code>Promise.&lt;{frames: {test: string, icon: string}}&gt;</code>
+Handles requests to the <i>getEstimations</i> path.
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| req | <code>Request</code> | 
+| res | <code>Response</code> | 
+
+<a name="stringifyResults"></a>
+
+## stringifyResults(req, result, timerName) ⇒ <code>Object</code>
+"Stingifies" the results of a fetched result.
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| req | <code>Request</code> | 
+| result | <code>object</code> | 
+| timerName | <code>string</code> | 
 
 <a name="applyLeadingZeros"></a>
 

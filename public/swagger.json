@@ -74,6 +74,20 @@
             "newYear",
             "interest"
           ]
+        },
+        {
+          "name": "leadingZeros",
+          "in": "query",
+          "required": false,
+          "description": "Adds extra zeros if needed.",
+          "type": "boolean"
+        },
+        {
+          "name": "nowMessage",
+          "in": "query",
+          "required": false,
+          "description": "The message that should be displayed when the timer is zero.",
+          "type": "string"
         }
       ]
     },
@@ -114,6 +128,20 @@
           "required": false,
           "description": "Enables/disables the interest-timer.",
           "type": "boolean"
+        },
+        {
+          "name": "leadingZeros",
+          "in": "query",
+          "required": false,
+          "description": "Adds extra zeros if needed.",
+          "type": "boolean"
+        },
+        {
+          "name": "nowMessage",
+          "in": "query",
+          "required": false,
+          "description": "The message that should be displayed when the timer is zero.",
+          "type": "string"
         }
       ]
     }

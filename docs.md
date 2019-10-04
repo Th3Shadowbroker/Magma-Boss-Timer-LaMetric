@@ -27,6 +27,9 @@
 <dt><a href="#handleSummary">handleSummary(req, res)</a> ⇒ <code>Promise.&lt;{frames: {test: string, icon: string}}&gt;</code></dt>
 <dd><p>Handles requests to the <i>getEstimations</i> path.</p>
 </dd>
+<dt><a href="#logRequest">logRequest(req, res, next)</a></dt>
+<dd><p>Logs an incoming request.</p>
+</dd>
 <dt><a href="#stringifyResults">stringifyResults(req, result, timerName)</a> ⇒ <code>Object</code></dt>
 <dd><p>&quot;Stingifies&quot; the results of a fetched result.</p>
 </dd>
@@ -250,6 +253,19 @@ Handles requests to the <i>getEstimations</i> path.
 | --- | --- |
 | req | <code>Request</code> | 
 | res | <code>Response</code> | 
+
+<a name="logRequest"></a>
+
+## logRequest(req, res, next)
+Logs an incoming request.
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| req | <code>Request</code> | 
+| res | <code>Response</code> | 
+| next | <code>function</code> | 
 
 <a name="stringifyResults"></a>
 

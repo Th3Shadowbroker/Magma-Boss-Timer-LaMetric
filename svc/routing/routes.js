@@ -2,7 +2,7 @@ import LaMetric from "../api/LaMetric";
 import TimeUtility from "../util/TimeUtility";
 import Timer from "../api/Timer";
 import util from 'util';
-import {config} from './../index';
+import {config, log} from './../index';
 
 /**
  * Handles incoming requests.
@@ -29,7 +29,7 @@ function handleLegacyRequest(req, res) {
         )
         .catch(
             reason => {
-                console.log(reason);
+                log.error(reason);
                 res.json(LaMetric.generateResponse('Err ' + reason.statusCode, config.get('icon')['magmaBoss']));
             }
         )
@@ -72,7 +72,7 @@ function handleRequest(req, res) {
         timerPromise.then( result => res.json( stringifyResults(req, result, timerName) ) )
             .catch(
                 reason => {
-                    console.log(reason);
+                    log.error(reason);
                     res.json(LaMetric.generateResponse('Err ' + reason.statusCode, config.get('icon')[timerName]));
                 }
             )
@@ -113,6 +113,19 @@ async function handleSummary(req, res) {
     }
 
     return {frames: summary};
+}
+
+/**
+ * Logs an incoming request.
+ * @param req {Request}
+ * @param res {Response}
+ * @param next {function}
+ */
+function logRequest(req, res, next) {
+    let remoteAddress = req.headers.hasOwnProperty('x-forwarded-for') ? req.headers['x-forwarded-for'] : req.connection.remoteAddress;
+    let userAgent = req.headers.hasOwnProperty('user-agent') ? req.headers['user-agent'] : 'Unknown/0.0';
+    log.info(`[${remoteAddress}] ${req.method} ${userAgent}: ${req.url}`);
+    next();
 }
 
 /**
@@ -159,5 +172,6 @@ function applyLeadingZeros(num, req) {
 export {
     handleLegacyRequest,
     handleRequest,
-    handleSummary
+    handleSummary,
+    logRequest
 }

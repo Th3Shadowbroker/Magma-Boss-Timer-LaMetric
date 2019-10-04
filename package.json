@@ -14,9 +14,9 @@
   "repository": "https://github.com/Th3Shadowbroker/Magma-Boss-Timer-LaMetric",
   "dependencies": {
     "express": "^4.17.1",
+    "log4js": "^5.1.0",
     "memory-cache": "^0.2.0",
-    "moment": "^2.24.0",
-    "morgan": "^1.9.1"
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "@babel/core": "7.6.2",

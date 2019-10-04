@@ -1,10 +1,14 @@
 import express from 'express';
-import morgan from 'morgan';
-import {handleRequest, handleLegacyRequest, handleSummary} from "./routing/routes";
+import log4js from 'log4js';
+import {handleRequest, handleLegacyRequest, handleSummary, logRequest} from "./routing/routes";
 import JsonConfiguration from "./util/JsonConfiguration";
 
+// Prepare log
+const log = log4js.getLogger(process.env.npm_package_name);
+log.level = 'info';
+
 //Prepare config
-console.log('Loading configuration...');
+log.info('Loading configuration...');
 const config = new JsonConfiguration(__dirname + '/../svc.config.json');
 config.defaults({
    port: '2207',
@@ -24,15 +28,10 @@ config.defaults({
 });
 config.save();
 
-//Configure morgan remote-address
-morgan.token('remote-addr', (req, res) => {
-    return req.headers.hasOwnProperty('x-forwarded-for') ? req.headers['x-forwarded-for'] : req.connection.remoteAddress;
-});
-
 //Prepare express
-console.log('Initializing express using port ' + config.get('port') + '...');
+log.info('Initializing express using port ' + config.get('port') + '...');
 const app = express();
-app.use(morgan('common'));
+app.use(logRequest);
 
 //Legacy
 app.get('/', (req, res) => handleLegacyRequest(req, res));
@@ -41,7 +40,7 @@ app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
 //Current paths
 app.get('/getEstimation/:timerName', (req,res) => handleRequest(req, res));
 app.get('/getEstimations', (req,res) => handleSummary(req, res).then(r => res.json(r)).catch( reason => {
-    console.log(reason.message);
+    log.error(reason.message);
     res.sendStatus(500);
 } ));
 
@@ -60,12 +59,13 @@ app.get('/getEstimations', (req,res) => handleSummary(req, res).then(r => res.js
 try
 {
   app.listen(config.get('port'));
-  console.log('Service started. Request logging handed over to morgan.');
+  log.info('Service started!');
 } catch (e) {
-  console.log('An error occurred: ' + e.message);
+  log.error('An error occurred: ' + e.message);
 }
 
 export {
     config,
-    app
+    app,
+    log
 }

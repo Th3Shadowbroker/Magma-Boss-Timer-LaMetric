@@ -16,7 +16,7 @@ The apps are available on the LaMetric marketplace:
     - Magma Boss Timer
     - Dark Auction Timer
     - Bank Interest Timer
-    - New Year Timer (Coming soon. See [#7](https://github.com/Th3Shadowbroker/Magma-Boss-Timer-LaMetric/issues/7) for details)
+    - New Year Timer
     
 ### Donations
 Donations are always welcome and help me to keep my servers up and running.

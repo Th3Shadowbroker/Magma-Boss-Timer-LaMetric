@@ -89,6 +89,7 @@ async function handleSummary(req, res) {
     let magmaBoss = req.query.hasOwnProperty('magmaBoss') ? req.query.magmaBoss === 'true' : true;
     let darkAuction = req.query.hasOwnProperty('darkAuction') ? req.query.darkAuction === 'true' : true;
     let interest = req.query.hasOwnProperty('interest') ? req.query.interest === 'true' : true;
+    let newYear = req.query.hasOwnProperty('newYear') ? req.query.newYear === 'true' : true;
     let summary = [];
 
     // Magma-Boss timer requested
@@ -109,6 +110,13 @@ async function handleSummary(req, res) {
     if (interest) {
         await Timer.interest().then( result => {
             summary.push( stringifyResults(req, result, 'interest').frames[0] );
+        } );
+    }
+
+    // New-year timer requested
+    if (newYear) {
+        await Timer.newYear().then( result => {
+            summary.push( stringifyResults(req, result, 'newYear').frames[0] );
         } );
     }
 

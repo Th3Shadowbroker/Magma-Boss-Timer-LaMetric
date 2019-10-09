@@ -130,6 +130,13 @@
           "type": "boolean"
         },
         {
+          "name": "newYear",
+          "in": "query",
+          "required": false,
+          "description": "Enables/disables the new-year-timer.",
+          "type": "boolean"
+        },
+        {
           "name": "leadingZeros",
           "in": "query",
           "required": false,

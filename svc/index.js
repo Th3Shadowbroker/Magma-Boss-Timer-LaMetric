@@ -34,7 +34,6 @@ const app = express();
 app.use(logRequest);
 
 //Legacy
-app.use('/', (req, res) => res.redirect('https://th3shadowbroker.github.io/Magma-Boss-Timer-LaMetric/'));
 app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
 
 //Current paths
@@ -55,6 +54,9 @@ app.get('/getEstimations', (req,res) => handleSummary(req, res).then(r => res.js
     // Bug tracking
     app.use('/issue', (req, res) => res.redirect(process.env.npm_package_bugs_url));
     app.use('/issues', (req, res) => res.redirect(process.env.npm_package_bugs_url));
+
+    // IMPORTANT: KEEP ALWAYS AS LAST ROUTE!!!
+    app.use('/', (req, res) => res.redirect('https://th3shadowbroker.github.io/Magma-Boss-Timer-LaMetric/'));
 
 try
 {

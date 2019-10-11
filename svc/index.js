@@ -34,8 +34,7 @@ const app = express();
 app.use(logRequest);
 
 //Legacy
-app.get('/', (req, res) => handleLegacyRequest(req, res));
-//app.use('/', express.static(__dirname + '/../public/info.html')); @TODO
+app.use('/', (req, res) => res.redirect('https://th3shadowbroker.github.io/Magma-Boss-Timer-LaMetric/'));
 app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
 
 //Current paths

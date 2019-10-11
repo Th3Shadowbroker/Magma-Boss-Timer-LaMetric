@@ -35,6 +35,7 @@ app.use(logRequest);
 
 //Legacy
 app.get('/', (req, res) => handleLegacyRequest(req, res));
+//app.use('/', express.static(__dirname + '/../public/info.html')); @TODO
 app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
 
 //Current paths

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>SkyBlock-Timers-LaMetric</title>
+
+        <!-- OpenGraph -->
+        <meta property="og:title" content="Hypixel SkyBlock Magma-Boss-Timer for LaMetric">
+        <meta property="og:site_name" content="Hypixel SkyBlock Timers for LaMetric">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://lametric.th3shadowbroker.dev/favicon.png">
+        <meta property="og:description" content="Bring the Hypixel SkyBlock-Timers to your LaMetric.">
+        <meta property="og:url" content="https://lametric.th3shadowbroker.dev">
+
+        <!-- Twitter -->
+        <meta name="twitter:title" content="Hypixel SkyBlock Timers for LaMetric">
+        <meta name="twitter:description" content="Bring the Hypixel SkyBlock-Timers to your LaMetric.">
+        <meta name="twitter:url" content="https://lametric.th3shadowbroker.dev">
+        <meta name="twitter:image" content="https://lametric.th3shadowbroker.dev/favicon.png">
+        <meta name="twitter:site" content="@m4taiori">
+        <meta name="twitter:creator" content="@m4taiori">
+        <meta name="twitter:card" content="summary">
+
+        <!-- Custom style -->
+        <link rel="stylesheet" type="text/css" href="index.css">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- TypedJS -->
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    </head>
+
+    <body>
+        <div class="overlay"></div>
+
+        <div class="container">
+            <img id="block" src="img/block.png">
+
+            <h1>Hypixel</h1>
+            <h1>SkyBlock Timers LaMetric</h1>
+
+            <p>
+                <h4>Bring the Hypixel <span id="timerName">SkyBlock-Timers</span> to your LaMetric smart-clock!</h4>
+            </p>
+            <br/>
+
+            <p>
+                The timers were made and are maintained by <a href="https://inventivetalent.org/" target="_blank">inventivetalent</a><br/>
+                and were made available for LaMetric by <a href="https://th3shadowbroker.org" target="_blank">Th3Shadowbroker</a>
+            </p>
+            <br/>
+
+            <p>
+                Find the app on<br/>
+                <a href="https://apps.lametric.com/apps/hypixel_skyblock_timers/9177" target="_blank"><img class="lametric brand-logo" src="img/lametric_logo.png"></a>
+                <a href="https://github.com/Th3Shadowbroker/Magma-Boss-Timer-LaMetric" target="_blank"><img class="github brand-logo" src="img/github_logo.png"></a>
+            </p>
+            <br/>
+
+            <span>This website is not affiliated with Minecraft/Mojang AB, Hypixel or inventivetalent</span>
+        </div>
+
+        <script>
+            // Animate the block
+            $(document).ready( () => {
+                $('#block').slideDown();
+            } );
+
+            // TypedJS
+            var options = {
+                strings: ['Magma Boss Timer^2000', 'Dark Auction Timer^2000', 'Bank Interest Timer^2000', "New Year's Timer^2000"],
+                showCursor: false,
+                loop: true,
+                loopCount: Infinity,
+                typeSpeed: 40
+            };
+
+            var typed = new Typed('#timerName', options);
+        </script>
+    </body>
+</html>

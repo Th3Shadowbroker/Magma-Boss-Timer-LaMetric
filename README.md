@@ -7,6 +7,9 @@
 This tiny webservice remaps the information from [inventivetalentDevs](https://github.com/inventivetalentDev) 
 Magma-Boss Timer for Hypixels SkyBlock into values for [LaMetric](https://lametric.com/) smartwatches.
 
+### API
+A swagger-file describing the API is available [here](https://lametric.th3shadowbroker.dev/swagger).
+
 ### Where to download?
 The apps are available on the LaMetric marketplace:
 - [Magma Boss Timer](https://apps.lametric.com/apps/hypixel_skyblock_magma_boss_timer/9053) (Deprecated)

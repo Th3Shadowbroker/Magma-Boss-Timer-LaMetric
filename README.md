@@ -23,6 +23,7 @@ The apps are available on the LaMetric marketplace:
     
 ### Donations
 Donations are always welcome and help me to keep my servers up and running.
+[Sponsor me on GitHub](https://github.com/sponsors/Th3Shadowbroker)
 
 [![](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://patreon.com/m4taiori)
 

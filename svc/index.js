@@ -2,6 +2,7 @@ import express from 'express';
 import log4js from 'log4js';
 import {handleRequest, handleLegacyRequest, handleSummary, logRequest} from "./routing/routes";
 import JsonConfiguration from "./util/JsonConfiguration";
+import LaMetric from "./api/LaMetric";
 
 // Prepare log
 const log = log4js.getLogger(process.env.npm_package_name);
@@ -40,7 +41,8 @@ app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
 app.get('/getEstimation/:timerName', (req,res) => handleRequest(req, res));
 app.get('/getEstimations', (req,res) => handleSummary(req, res).then(r => res.json(r)).catch( reason => {
     log.error(reason.message);
-    res.sendStatus(500);
+    res.status = 500;
+    res.json(LaMetric.generateResponse('Unable to connect to the timer-api. LaMetric will try to reconnect automatically.','620'));
 } ));
 
 //Info resources

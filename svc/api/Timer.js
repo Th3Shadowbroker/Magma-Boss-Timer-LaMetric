@@ -40,9 +40,14 @@ class Timer {
                     res => {
                         res.on('data', (chunk) => data += chunk);
                         res.on('end', () => {
-                            let parsedData = JSON.parse(data);
-                            mcache.put(cacheKey, parsedData, config.get('cacheTimeout') * 1000);
-                            resolve(parsedData);
+                            try
+                            {
+                                let parsedData = JSON.parse(data);
+                                mcache.put(cacheKey, parsedData, config.get('cacheTimeout') * 1000);
+                                resolve(parsedData);
+                            } catch (e) {
+                                reject(e);
+                            }
                         });
                     }
                 );

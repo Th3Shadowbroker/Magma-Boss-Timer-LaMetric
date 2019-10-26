@@ -20,6 +20,7 @@ The apps are available on the LaMetric marketplace:
     - Dark Auction Timer
     - Bank Interest Timer
     - New Year Timer
+    - Spooky Festival Timer
     
 ### Donations
 Donations are always welcome and help me to keep my servers up and running.

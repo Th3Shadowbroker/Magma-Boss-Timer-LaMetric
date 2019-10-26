@@ -89,5 +89,13 @@ class Timer {
         return this.fetchData('interest');
     }
 
+    /**
+     * Get the estimation for the spooky festival timer.
+     * @return {Promise<object>}
+     */
+    static spooky() {
+        return this.fetchData('spooky');
+    }
+
 }
 export default Timer;

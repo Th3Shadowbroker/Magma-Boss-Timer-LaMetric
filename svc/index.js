@@ -18,13 +18,15 @@ config.defaults({
        magmaBoss: 'https://hypixel-api.inventivetalent.org/api/skyblock/bosstimer/magma/estimatedSpawn',
        newYear: 'https://hypixel-api.inventivetalent.org/api/skyblock/newyear/estimate',
        darkAuction: 'https://hypixel-api.inventivetalent.org/api/skyblock/darkauction/estimate',
-       interest: 'https://hypixel-api.inventivetalent.org/api/skyblock/bank/interest/estimate'
+       interest: 'https://hypixel-api.inventivetalent.org/api/skyblock/bank/interest/estimate',
+       spooky: 'https://hypixel-api.inventivetalent.org/api/skyblock/spookyFestival/estimate'
    },
    icon: {
        magmaBoss: 'i30969',
        newYear: '29438',
        darkAuction: '22961',
-       interest: '4472'
+       interest: '4472',
+       spooky: '32001'
    }
 });
 config.save();

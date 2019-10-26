@@ -70,6 +70,7 @@ A class used to fetch data from <a href="https://github.com/InventivetalentDev">
     * [.newYear()](#Timer.newYear) ⇒ <code>Promise.&lt;object&gt;</code>
     * [.darkAuction()](#Timer.darkAuction) ⇒ <code>Promise.&lt;object&gt;</code>
     * [.interest()](#Timer.interest) ⇒ <code>Promise.&lt;object&gt;</code>
+    * [.spooky()](#Timer.spooky) ⇒ <code>Promise.&lt;object&gt;</code>
 
 <a name="Timer.fetchData"></a>
 
@@ -104,6 +105,12 @@ Get the estimation for the next dark-auction.
 
 ### Timer.interest() ⇒ <code>Promise.&lt;object&gt;</code>
 Get the estimation for the interest timer.
+
+**Kind**: static method of [<code>Timer</code>](#Timer)  
+<a name="Timer.spooky"></a>
+
+### Timer.spooky() ⇒ <code>Promise.&lt;object&gt;</code>
+Get the estimation for the spooky festival timer.
 
 **Kind**: static method of [<code>Timer</code>](#Timer)  
 <a name="JsonConfiguration"></a>

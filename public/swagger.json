@@ -72,7 +72,8 @@
             "magmaBoss",
             "darkAuction",
             "newYear",
-            "interest"
+            "interest",
+            "spooky"
           ]
         },
         {
@@ -131,6 +132,13 @@
         },
         {
           "name": "newYear",
+          "in": "query",
+          "required": false,
+          "description": "Enables/disables the new-year-timer.",
+          "type": "boolean"
+        },
+        {
+          "name": "spooky",
           "in": "query",
           "required": false,
           "description": "Enables/disables the new-year-timer.",

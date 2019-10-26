@@ -64,6 +64,10 @@ function handleRequest(req, res) {
                 timerPromise = Timer.interest();
                 break;
 
+            case 'spooky':
+                timerPromise = Timer.spooky();
+                break;
+
             default:
                 res.sendStatus(404);
                 return;
@@ -90,6 +94,7 @@ async function handleSummary(req, res) {
     let darkAuction = req.query.hasOwnProperty('darkAuction') ? req.query.darkAuction === 'true' : true;
     let interest = req.query.hasOwnProperty('interest') ? req.query.interest === 'true' : true;
     let newYear = req.query.hasOwnProperty('newYear') ? req.query.newYear === 'true' : true;
+    let spooky = req.query.hasOwnProperty('spooky') ? req.query.spooky === 'true' : true;
     let summary = [];
 
     // Magma-Boss timer requested
@@ -117,6 +122,13 @@ async function handleSummary(req, res) {
     if (newYear) {
         await Timer.newYear().then( result => {
             summary.push( stringifyResults(req, result, 'newYear').frames[0] );
+        } );
+    }
+
+    // Spooky festival timer requested
+    if (spooky) {
+        await Timer.spooky().then( result => {
+            summary.push( stringifyResults(req, result, 'spooky').frames[0] )
         } );
     }
 

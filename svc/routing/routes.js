@@ -2,6 +2,7 @@ import LaMetric from "../api/LaMetric";
 import TimeUtility from "../util/TimeUtility";
 import Timer from "../api/Timer";
 import util from 'util';
+import moment from "moment";
 import {config, log} from './../index';
 
 /**
@@ -130,6 +131,11 @@ async function handleSummary(req, res) {
         await Timer.spooky().then( result => {
             summary.push( stringifyResults(req, result, 'spooky').frames[0] )
         } );
+    }
+
+    // If it's christmas!
+    if (moment(moment.now()).date() === 24 && moment(moment.now()).month() + 1 === 12) {
+        summary.push({text: "Merry Christmas!", icon: "4889"});
     }
 
     return {frames: summary};

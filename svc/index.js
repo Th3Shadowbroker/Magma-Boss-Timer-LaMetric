@@ -3,6 +3,7 @@ import log4js from 'log4js';
 import {handleRequest, handleLegacyRequest, handleSummary, logRequest} from "./routing/routes";
 import JsonConfiguration from "./util/JsonConfiguration";
 import LaMetric from "./api/LaMetric";
+import Stats from "./util/Stats";
 
 // Prepare log
 const log = log4js.getLogger(process.env.npm_package_name);
@@ -31,6 +32,10 @@ config.defaults({
 });
 config.save();
 
+//Setup stat record
+const stats = new Stats();
+setInterval(() => stats.reset(), 60 * 1000);
+
 //Prepare express
 log.info('Initializing express using port ' + config.get('port') + '...');
 const app = express();
@@ -40,12 +45,21 @@ app.use(logRequest);
 app.get('/getEstimation', (req, res) => handleLegacyRequest(req, res));
 
 //Current paths
-app.get('/getEstimation/:timerName', (req,res) => handleRequest(req, res));
-app.get('/getEstimations', (req,res) => handleSummary(req, res).then(r => res.json(r)).catch( reason => {
-    log.error(reason.message);
-    res.status = 500;
-    res.json(LaMetric.generateResponse('Unable to connect to the timer-api. LaMetric will try to reconnect automatically.','620'));
-} ));
+app.get('/getEstimation/:timerName', (req,res) => {
+    handleRequest(req, res);
+    stats.increase();
+});
+app.get('/getEstimations', (req,res) => handleSummary(req, res)
+    .then(r => {
+        res.json(r);
+        stats.increase();
+    })
+    .catch( reason => {
+        log.error(reason.message);
+        res.status = 500;
+        res.json(LaMetric.generateResponse('Unable to connect to the timer-api. LaMetric will try to reconnect automatically.','620'));
+    }
+));
 
 //Info resources
     // Swagger stuff
@@ -59,8 +73,11 @@ app.get('/getEstimations', (req,res) => handleSummary(req, res).then(r => res.js
     app.use('/issue', (req, res) => res.redirect(process.env.npm_package_bugs_url));
     app.use('/issues', (req, res) => res.redirect(process.env.npm_package_bugs_url));
 
+    // Stats
+    app.use('/stats', (req, res) => res.json({rpm: stats.rpm, highest: stats.highest}));
+
     // IMPORTANT: KEEP ALWAYS AS LAST ROUTE!!!
-    app.use('/', (req, res) => res.redirect('https://th3shadowbroker.github.io/Magma-Boss-Timer-LaMetric/'));
+    app.use('*', (req, res) => res.redirect('https://th3shadowbroker.github.io/Magma-Boss-Timer-LaMetric/'));
 
 try
 {

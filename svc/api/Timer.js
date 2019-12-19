@@ -97,5 +97,13 @@ class Timer {
         return this.fetchData('spooky');
     }
 
+    /**
+     * Get the estimation for the winter-event timer.
+     * @return {Promise<Object>}
+     */
+    static winter() {
+        return this.fetchData('winter');
+    }
+
 }
 export default Timer;

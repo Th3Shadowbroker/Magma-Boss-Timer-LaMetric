@@ -73,6 +73,10 @@ function handleRequest(req, res) {
                 timerPromise = Timer.winter();
                 break;
 
+            case 'zoo':
+                timerPromise = Timer.zoo();
+                break;
+
             default:
                 res.sendStatus(404);
                 return;
@@ -101,6 +105,7 @@ async function handleSummary(req, res) {
     let newYear = req.query.hasOwnProperty('newYear') ? req.query.newYear === 'true' : true;
     let spooky = req.query.hasOwnProperty('spooky') ? req.query.spooky === 'true' : true;
     let winter = req.query.hasOwnProperty('winter') ? req.query.winter === 'true' : true;
+    let zoo = req.query.hasOwnProperty('zoo') ? req.query.zoo === 'true' : true;
     let summary = [];
 
     // Magma-Boss timer requested
@@ -142,6 +147,13 @@ async function handleSummary(req, res) {
     if (winter) {
         await Timer.winter().then( result => {
             summary.push( stringifyResults(req, result, 'winter').frames[0] )
+        } );
+    }
+
+    // Zoo timer requested
+    if (zoo) {
+        await Timer.zoo().then( result => {
+            summary.push( stringifyResults(req, result, 'zoo').frames[0] )
         } );
     }
 

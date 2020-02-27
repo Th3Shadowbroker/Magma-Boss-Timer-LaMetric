@@ -105,5 +105,13 @@ class Timer {
         return this.fetchData('winter');
     }
 
+    /**
+     * Get the estimation for the travelling zoo timer.
+     * @return {Promise<Object>}
+     */
+    static zoo() {
+        return this.fetchData('zoo');
+    }
+
 }
 export default Timer;

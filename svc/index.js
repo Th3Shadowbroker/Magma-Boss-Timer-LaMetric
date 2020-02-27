@@ -20,14 +20,18 @@ config.defaults({
        newYear: 'https://hypixel-api.inventivetalent.org/api/skyblock/newyear/estimate',
        darkAuction: 'https://hypixel-api.inventivetalent.org/api/skyblock/darkauction/estimate',
        interest: 'https://hypixel-api.inventivetalent.org/api/skyblock/bank/interest/estimate',
-       spooky: 'https://hypixel-api.inventivetalent.org/api/skyblock/spookyFestival/estimate'
+       spooky: 'https://hypixel-api.inventivetalent.org/api/skyblock/spookyFestival/estimate',
+       winter: 'https://hypixel-api.inventivetalent.org/api/skyblock/winter/estimate',
+       zoo: 'https://hypixel-api.inventivetalent.org/api/skyblock/zoo/estimate'
    },
    icon: {
        magmaBoss: 'i30969',
        newYear: '29438',
        darkAuction: '22961',
        interest: '4472',
-       spooky: '32001'
+       spooky: '32001',
+       winter: '7367',
+       zoo: '35303'
    }
 });
 config.save();

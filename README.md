@@ -22,6 +22,7 @@ The apps are available on the LaMetric marketplace:
     - New Year Timer
     - Spooky Festival Timer
     - Winter Event Timer
+    - Traveling Zoo Timer
     
 ### Donations
 Donations are always welcome and help me to keep my servers up and running.

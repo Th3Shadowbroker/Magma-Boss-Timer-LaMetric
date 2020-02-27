@@ -72,6 +72,7 @@ A class used to fetch data from <a href="https://github.com/InventivetalentDev">
     * [.interest()](#Timer.interest) ⇒ <code>Promise.&lt;object&gt;</code>
     * [.spooky()](#Timer.spooky) ⇒ <code>Promise.&lt;object&gt;</code>
     * [.winter()](#Timer.winter) ⇒ <code>Promise.&lt;Object&gt;</code>
+    * [.zoo()](#Timer.zoo) ⇒ <code>Promise.&lt;Object&gt;</code>
 
 <a name="Timer.fetchData"></a>
 
@@ -118,6 +119,12 @@ Get the estimation for the spooky festival timer.
 
 ### Timer.winter() ⇒ <code>Promise.&lt;Object&gt;</code>
 Get the estimation for the winter-event timer.
+
+**Kind**: static method of [<code>Timer</code>](#Timer)  
+<a name="Timer.zoo"></a>
+
+### Timer.zoo() ⇒ <code>Promise.&lt;Object&gt;</code>
+Get the estimation for the travelling zoo timer.
 
 **Kind**: static method of [<code>Timer</code>](#Timer)  
 <a name="JsonConfiguration"></a>

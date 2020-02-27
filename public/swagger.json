@@ -73,7 +73,9 @@
             "darkAuction",
             "newYear",
             "interest",
-            "spooky"
+            "spooky",
+            "winter",
+            "zoo"
           ]
         },
         {
@@ -142,6 +144,20 @@
           "in": "query",
           "required": false,
           "description": "Enables/disables the new-year-timer.",
+          "type": "boolean"
+        },
+        {
+          "name": "winter",
+          "in": "query",
+          "required": false,
+          "description": "Enables/disables the winter-timer.",
+          "type": "boolean"
+        },
+        {
+          "name": "zoo",
+          "in": "query",
+          "required": false,
+          "description": "Enables/disables the zoo-timer.",
           "type": "boolean"
         },
         {

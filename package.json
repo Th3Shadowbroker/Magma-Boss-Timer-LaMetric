@@ -1,6 +1,6 @@
 {
   "name": "hypixel-mbt-lametric-node",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "",
   "main": "svc/index.js",
   "scripts": {

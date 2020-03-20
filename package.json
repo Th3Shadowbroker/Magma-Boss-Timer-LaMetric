@@ -19,9 +19,9 @@
     "moment": "^2.24.0"
   },
   "devDependencies": {
-    "@babel/core": "7.8.6",
-    "@babel/node": "7.8.4",
-    "@babel/preset-env": "7.8.6",
+    "@babel/core": "7.9.0",
+    "@babel/node": "7.8.7",
+    "@babel/preset-env": "7.9.0",
     "jsdoc-to-markdown": "5.0.3"
   }
 }

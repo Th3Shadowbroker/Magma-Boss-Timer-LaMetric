@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "log4js": "^6.3.0",
     "memory-cache": "^0.2.0",
-    "moment": "^2.27.0"
+    "moment": "^2.29.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",

@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": "https://github.com/Th3Shadowbroker/Magma-Boss-Timer-LaMetric",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "log4js": "^6.3.0",
     "memory-cache": "^0.2.0",
     "moment": "^2.29.2"

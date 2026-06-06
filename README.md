@@ -1,11 +1,9 @@
 ## [Hypixel-Magma-Boss-Timer: LaMetric](https://th3shadowbroker.github.io/Magma-Boss-Timer-LaMetric/)
-[![Quality Gate Status](https://sonar.th3shadowbroker.dev/api/project_badges/measure?project=Magma-Boss-Timer-LaMetric&metric=alert_status)](https://sonar.th3shadowbroker.dev/dashboard?id=Magma-Boss-Timer-LaMetric)
-[![Bugs](https://sonar.th3shadowbroker.dev/api/project_badges/measure?project=Magma-Boss-Timer-LaMetric&metric=bugs)](https://sonar.th3shadowbroker.dev/dashboard?id=Magma-Boss-Timer-LaMetric)
-[![Vulnerabilities](https://sonar.th3shadowbroker.dev/api/project_badges/measure?project=Magma-Boss-Timer-LaMetric&metric=vulnerabilities)](https://sonar.th3shadowbroker.dev/dashboard?id=Magma-Boss-Timer-LaMetric)
-[![Maintainability Rating](https://sonar.th3shadowbroker.dev/api/project_badges/measure?project=Magma-Boss-Timer-LaMetric&metric=sqale_rating)](https://sonar.th3shadowbroker.dev/dashboard?id=Magma-Boss-Timer-LaMetric)
-
 This tiny webservice remaps the information from [inventivetalentDevs](https://github.com/inventivetalentDev) 
 Magma-Boss Timer for Hypixels SkyBlock into values for [LaMetric](https://lametric.com/) smartwatches.
+
+> [!IMPORTANT]  
+> This project is no longer maintained. The successor of this project is called [HyMetric](https://github.com/Th3Shadowbroker/hymetric).
 
 ### API
 A swagger-file describing the API is available [here](https://lametric.th3shadowbroker.dev/swagger).
